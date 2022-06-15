@@ -114,15 +114,9 @@ ${answers.installation}
 
 ## Usage
 
-\`\`\`md
-![${answers.title}](${answers.screenshot})
-\`\`\`
-
-${answers.usage}
+${projectImage(answers)}
 
 ## Credits
-
-Users and sources that I used to aid the development of ${answers.title} include:
 
 ${answers.credits}
 
@@ -147,3 +141,11 @@ inquirer.prompt(questions).then((answers) => {
    );
 });
 
+const projectImage = function(answers) {
+    if (answers.screenshot) {
+        return (`\`\`\`md
+![${answers.title}](${answers.screenshot})
+\`\`\``)
+    }
+    return `${answers.usage}`
+}
