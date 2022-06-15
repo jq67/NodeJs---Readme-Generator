@@ -1,16 +1,19 @@
+// import required libraries
 const inquirer = require('inquirer');
 const fs = require('fs');
 
+
+// defining inquirer questions
 const questions = [
     {
         type: 'input',
         name: 'title',
-        message: 'Please enter a title name for your project'
+        message: 'Please enter a title name for your project (required)'
     },
     {
         type: 'input',
         name: 'what',
-        message: 'What does your project do?'
+        message: 'What does your project do? (required)'
     },
     {
         type: 'input',
@@ -24,13 +27,18 @@ const questions = [
     },
     {
         type: 'input',
+        name: 'tech',
+        message: 'What technologies does your project use? (required)'
+    },
+    {
+        type: 'input',
         name: 'installation',
-        message: 'Please describe the steps required to install your project',
+        message: 'Please describe the steps required to install your project (required)',
     },
     {
         type: 'input',
         name: 'usage',
-        message: 'Please outline the steps to use your project',
+        message: 'Please outline the steps to use your project (required)',
     },
     {
         type: 'input',
@@ -56,7 +64,7 @@ const questions = [
     {
         type: 'input',
         name: 'github',
-        message: 'Please enter your github username',
+        message: 'Please enter a link to your github',
     },
     {
         type: 'input',
@@ -66,10 +74,84 @@ const questions = [
     {
         type: 'input',
         name: 'contact',
-        message: 'Please enter instructions for users on how to be able to contact you'
+        message: 'Please enter instructions for users on how to be able to contact you (required, if no contact is wanted state so)'
     },
 ];
 
+// set of checks for if user would like to skip answers
+const imageCheck = function(answers) {
+    if (answers.screenshot === '') {
+        return `\`\`\`md
+${answers.usage}
+\`\`\``
+    }
+
+    return (`![project screenshot](${answers.screenshot})
+
+\`\`\`md
+${answers.usage}
+\`\`\``)    
+};
+
+const whyCheck = function(answers) {
+    if (answers.why === '') {
+        return ``
+    }
+
+    return(`### Reasons for Development
+
+${answers.why}`)
+};
+
+const howCheck = function(answers) {
+    if (answers.how === '') {
+        return ``
+    }
+
+    return(`### Successes and Failures
+
+${answers.how}`)
+};
+
+const contributionCheck = function(answers) {
+    if (answers.contribution === '') {
+        return ``
+    }
+
+    return (`## Contribution
+
+Guidelines for contribution:
+
+${answers.contribution}`)
+};
+
+const creditsCheck = function(answers) {
+    if (answers.credits === '') {
+        return ``
+    }
+
+    return (`## Credits
+
+${answers.credits}`)
+};
+
+const emailCheck = function(answers) {
+    if (answers.email === '') {
+        return ``
+    }
+
+    return `${answers.email}`
+};
+
+const gitCheck = function(answers) {
+    if (answers.github === '') {
+        return ``
+    }
+
+    return `${answers.github}`
+};
+
+// function that determines Readme format
 const writeReadMe = (answers) => 
 `# ${answers.title} ![${answers.license}](https://img.shields.io/badge/License-${answers.license.replaceAll(' ', '%20')}-brightgreen)
 
@@ -79,13 +161,9 @@ const writeReadMe = (answers) =>
 
 ${answers.what}
 
-### Reasons for Development
+${whyCheck(answers)}
 
-${answers.why}
-
-### Successes and Failures
-
-${answers.how}
+${howCheck(answers)}
 
 ## Table of Contents
 
@@ -114,38 +192,26 @@ ${answers.installation}
 
 ## Usage
 
-${projectImage(answers)}
+${imageCheck(answers)}
 
-## Credits
+${creditsCheck(answers)}
 
-${answers.credits}
-
-## Contribution
-
-Instructions for contribution include:
-${answers.contribution}
+${contributionCheck(answers)}
 
 ## Questions
 
 ${answers.contact}
-${answers.github}
-${answers.email}
+
+${gitCheck(answers)}
+${emailCheck(answers)}
 
 ---
 ## Licence
 This project is covered under the \`${answers.license}\` license.`
 
+// inquirer function as per documenation
 inquirer.prompt(questions).then((answers) => {
    fs.writeFile('README.md', writeReadMe(answers), (err) =>
    err ? console.error(err) : console.log('it worked!')
    );
 });
-
-const projectImage = function(answers) {
-    if (answers.screenshot) {
-        return (`\`\`\`md
-![project screenshot](${answers.screenshot})
-\`\`\``)
-    }
-    return `${answers.usage}`
-}

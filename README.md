@@ -1,18 +1,16 @@
-# 234 ![Mit License](https://img.shields.io/badge/License-Mit%20License-brightgreen)
+# NodeJs Readme Generator ![Mit License](https://img.shields.io/badge/License-Mit%20License-brightgreen)
 
 ## Description
 
-### What does 234 do?
+### What does NodeJs Readme Generator do?
 
-234
+This project accepts user input to generate a descriptive readme for projects.
 
-### Reasons for Development
 
-234
 
 ### Successes and Failures
 
-234
+This project sucessfully accomplishes all original goals
 
 ## Table of Contents
 
@@ -31,34 +29,35 @@
 
 Technologies used include:
 
-undefined
+Nodejs, javascript, the file system module and the npm inquirer package are used in this project.
 
 ### Installation Instructions
 
 ```md
-234
+Clone the repository, and open a terminal in the root of the project and type npm install
 ```
 
 ## Usage
 
+![project screenshot](./images/example.png)
+
 ```md
-![project screenshot](./testone.png)
+Open a terminal in the root of the project and type npm start. Any fields not marked as required may be left empty.
 ```
 
-## Credits
 
-234
 
 ## Contribution
 
-Instructions for contribution include:
-234
+Guidelines for contribution:
+
+No Contribution
 
 ## Questions
 
-234
-234
-234
+Contact through email
+https://github.com/jq67
+julianquanfun@gmail.com
 
 ---
 ## Licence
