@@ -144,7 +144,7 @@ inquirer.prompt(questions).then((answers) => {
 const projectImage = function(answers) {
     if (answers.screenshot) {
         return (`\`\`\`md
-![${answers.title}](${answers.screenshot})
+![project screenshot](${answers.screenshot})
 \`\`\``)
     }
     return `${answers.usage}`

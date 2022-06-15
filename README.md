@@ -42,7 +42,7 @@ undefined
 ## Usage
 
 ```md
-![123](/images/test.png)
+![project screenshot](images\test.PNG)
 ```
 
 ## Credits
