@@ -48,12 +48,12 @@ const questions = [
     {
         type: 'input',
         name: 'credits',
-        message: 'Please list any users or sources you want to credit to aiding you through your project'
+        message: 'Please list any users or sources you want to credit to aiding you through your project (required)'
     },
     {
         type: 'input',
         name: 'contribution',
-        message: 'Please list any contribution guidelines for future users'
+        message: 'Please list any contribution guidelines for future users (required)'
     },
     {
         type: 'list',
@@ -207,7 +207,7 @@ ${emailCheck(answers)}
 
 ---
 ## Licence
-This project is covered under the \`${answers.license}\` license.`
+This project is covered under the \`${answers.license}\``
 
 // inquirer function as per documenation
 inquirer.prompt(questions).then((answers) => {

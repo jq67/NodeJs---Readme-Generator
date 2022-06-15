@@ -1,16 +1,16 @@
-# NodeJs Readme Generator ![Mit License](https://img.shields.io/badge/License-Mit%20License-brightgreen)
+# Readme Generator ![Mit License](https://img.shields.io/badge/License-Mit%20License-brightgreen)
 
 ## Description
 
-### What does NodeJs Readme Generator do?
+### What does Readme Generator do?
 
-This project accepts user input to generate a descriptive readme for projects.
+This project prompts the user and generates a readme file based on the provided answers.
 
 
 
 ### Successes and Failures
 
-This project sucessfully accomplishes all original goals
+This project is complete and meets all original goals.
 
 ## Table of Contents
 
@@ -29,12 +29,12 @@ This project sucessfully accomplishes all original goals
 
 Technologies used include:
 
-Nodejs, javascript, the file system module and the npm inquirer package are used in this project.
+Nodejs, and the inquirer npm package
 
 ### Installation Instructions
 
 ```md
-Clone the repository, and open a terminal in the root of the project and type npm install
+run npm install in the terminal
 ```
 
 ## Usage
@@ -42,23 +42,26 @@ Clone the repository, and open a terminal in the root of the project and type np
 ![project screenshot](./images/example.png)
 
 ```md
-Open a terminal in the root of the project and type npm start. Any fields not marked as required may be left empty.
+npm run start in the terminal
 ```
 
+## Credits
 
+Credits to myself and the inquirer documentation.
 
 ## Contribution
 
 Guidelines for contribution:
 
-No Contribution
+Open to suggestions.
 
 ## Questions
 
-Contact through email
+Contact through email.
+
 https://github.com/jq67
 julianquanfun@gmail.com
 
 ---
 ## Licence
-This project is covered under the `Mit License` license.
+This project is covered under the `Mit License`
